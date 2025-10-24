@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let price = Number(prompt("What is the bill?"));
+      if (price > 5000 && price <= 7000) {
+        let discount = price - Math.floor((5 * price) / 100);
+        console.log(`The amount you have to pay after discount is ${discount}`);
+      }
+      if (price > 7000 && price <= 9000) {
+        let discount = price - Math.floor((10 * price) / 100);
+        console.log(`The amount you have to pay after discount is ${discount}`);
+      }
+      if (price > 9000) {
+        let discount = price - Math.floor((20 * price) / 100);
+        console.log(`The amount you have to pay after discount is ${discount}`);
+      } else {
+        console.log("wrongInput");
+      }
+
+   
+    </script>
+  </body>
+</html>
