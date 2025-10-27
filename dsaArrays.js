@@ -119,21 +119,18 @@
 // console.log(arr);
 
 //! 🔹 Remove duplicates from array (without Set)
-// let arr = [1,1,2,3,3,4,0]; 
+// let arr = [1,1,2,3,3,4,0];
 // let newArr=[];   // output: [1,2,3,4]
 // for (let i = 0; i < arr.length; i++) {
 //     if (arr[i]!==arr[i+1]) {
 //         newArr[newArr.length]=arr[i];
 //     }
-    
+
 // }
 // console.log(newArr);
 
-
-
 //!Remove duplicates in-place — matlab naya array use nahi karna,
 // let arr = [1, 1, 2, 3, 3, 4, 4];
-
 
 // let i = 0; // slow pointer
 
@@ -146,23 +143,34 @@
 
 // console.log(arr.slice(0, i + 1));
 
-
-
-
-let arr = [3,6,4,9,1,0];
-let index=0
-for (let i = 0; i < arr.length-1; i++) {
-  for (let j = 0; j < arr.length-1; j++) {
-    if (arr[j]> arr[j+1]) {
-    let  temp = arr[j];
-     arr[j]=arr[j+1]
-     arr[j+1]=temp
-     index++
-   }
- 
-    
+let arr = [3, 6, 4, 9, 1, 0];
+let index = 0;
+for (let i = 0; i < arr.length - 1; i++) {
+  for (let j = 0; j < arr.length - 1; j++) {
+    if (arr[j] > arr[j + 1]) {
+      let temp = arr[j];
+      arr[j] = arr[j + 1];
+      arr[j + 1] = temp;
+      index++;
+    }
   }
-  
 }
-console.log(arr , index);
+console.log(arr, index);
+
+//! container with most water
+function containerWithMostWater() {
+  let container = [1, 8, 6, 2, 5, 4, 8, 3, 7];
+  let i = 0;
+  let j = container.length - 1;
+  let max = 0;
+  while (i < j) {
+    let width = j - i;
+    let height = Math.min(container[i], container[j]);
+    let area = width * height;
+    max = Math.max(area, max);
+    container[i] < container[j] ? i++ : j--;
+  }
+  return max
+}
+console.log(containerWithMostWater());
 
