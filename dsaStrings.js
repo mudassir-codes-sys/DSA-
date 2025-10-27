@@ -46,6 +46,38 @@ console.log(n);
 
 let a = 10;
 let b = 20;
-[a,b] = [b,a]
-console.log(a,b);
+[a, b] = [b, a];
+console.log(a, b);
 
+//! first Unique Characeter in string
+function firstUniqChar(s) {
+  let freq = {};
+  for (const char of s) {
+    if (freq[char]) {
+      freq[char]++;
+    } else {
+      freq[char] = 1;
+    }
+  }
+  for (let i = 0; i < s.length; i++) {
+    if (freq[s[i]] === 1) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+console.log(firstUniqChar("level"));
+
+function firstUniqCharacter(s) {
+  const map = new Map();
+  const array = [];
+  for (const char of s) {
+    map.set(char, map.get(char) || 0 + 1);
+    array.push(char);
+  }
+  while (array.length > 0 && map.get(s[char[0]]) > 1) {
+    array.shift();
+  }
+  return array.length > 0 ? array[0] : -1;
+}
