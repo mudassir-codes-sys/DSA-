@@ -51,3 +51,27 @@ function level(root) {
   }
 }
 level(root);
+
+function height(root) {
+  if (root === null) return 0;
+  let leftHeight = height(root.left);
+  let rightHeight = height(root.right);
+  return Math.max(leftHeight, rightHeight) + 1;
+}
+console.log(height(root));
+
+function count(root) {
+  if (root === null) return 0;
+  leftCount = count(root.left);
+  rightCount = count(root.right);
+  return leftCount + rightCount + 1;
+}
+console.log(count(root));
+
+function sum(root) {
+  if (root == null) return 0;
+  leftSum = sum(root.left);
+  rightSum = sum(root.right);
+  return leftSum+rightSum + root.val
+}
+console.log(sum(root));
