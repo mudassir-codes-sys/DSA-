@@ -48,13 +48,13 @@ function level(root) {
     console.log(node.val);
     node.left && q.push(node.left);
     node.right && q.push(node.right);
-  }
+  } 
 }
 level(root);
 
 function height(root) {
   if (root === null) return 0;
-  let leftHeight = height(root.left);
+  let leftHeight = height(root.left); 
   let rightHeight = height(root.right);
   return Math.max(leftHeight, rightHeight) + 1;
 }
@@ -75,3 +75,14 @@ function sum(root) {
   return leftSum+rightSum + root.val
 }
 console.log(sum(root));
+
+
+function Diameter(root) {
+  if(root === null) return 0
+  let left = Diameter(root.left)
+  let right = Diameter(root.right)
+  let Curr  = height(root.left) + height(root.right)
+  return Math.max(left , right , Curr)
+  
+}
+console.log(Diameter(root));

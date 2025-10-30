@@ -189,3 +189,30 @@ var mergeTwoLists = function (head1, head2) {
         return head2
     }
 };
+
+var inorderTraversal = function (root) {
+    let curr = root
+    let ans = []
+    while (curr !== null) {
+        if (curr.left === null) {
+            ans.push(curr.val)
+            curr = curr.right
+        } else {
+            let iP = curr.left
+            while (iP.right !== null && iP.right !== curr) {
+                iP = iP.right
+
+            }
+            if (iP.right === null) {
+                iP.right = curr
+                curr = curr.left
+            } else {
+                iP.right = null
+                ans.push(curr.val)
+                curr = curr.right
+
+            }
+        }
+    }
+    return ans
+  }
