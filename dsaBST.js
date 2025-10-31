@@ -70,16 +70,10 @@ function inorder(root) {
   inorder(root.right);
 }
 
-
-
-
 console.log("Before delete (inorder):");
-inorder(root); // print sorted order
-
-// Delete a node (for example: delete 7)
+inorder(root);
 root = deleteNode(root, 7);
 
 console.log("\nAfter delete (inorder):");
 inorder(root);
 console.log("\n");
-
