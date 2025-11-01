@@ -174,3 +174,37 @@ function containerWithMostWater() {
 }
 console.log(containerWithMostWater());
 
+//! Painter's Partition
+
+function partition(arr , k ){
+let st = Math.max(...arr)
+let end = arr.reduce((a ,b) => a+ b , 0)
+let n = arr.length
+let ans = -1
+while(st<= end){
+    let mid = Math.floor(st + (end - st) / 2)
+    if(isValid( arr , n  , k , mid)){
+        ans = mid
+        end = mid-1
+    }else{
+        st  = mid+1
+    }
+}
+return ans
+}
+function isValid(arr , n , k , mid){
+    let painter = 1
+    let  paint = 0
+    for(let i = 0 ; i < n ; i++){
+        if(arr[i] > mid) return false
+        else if (arr[i] + paint <= mid){
+            paint+= arr[i]
+            
+        }else{
+            painter ++
+            paint=arr[i]
+        }
+    }
+    return painter <= k
+
+}
